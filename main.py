@@ -26,9 +26,10 @@ while i == 0:
   #print(response.text) #Debug
   if "We're sorry, but something went wrong" in response.text: #Pokud API selže json_data_load upadnou na chybu - We're sorry, but something went wrong. viz. wrong.html
     print('Něco je špatně, ') #DEBUG
-    data_to_write_err = str(time.ctime()),'PK:', str(my_private_key),' WalletAddr.: ',str(wallet_address),'\n', str(response.content) + "\n\n\n"
-    file1 = open("errlog.txt","a") 
-    file1.write(str(data_to_write_err))
+    data_to_write_err = str(time.ctime()),'PK:', str(my_private_key),' WalletAddr.: ',str(wallet_address), str(response.content)
+    dummy_nko = '\n'
+    file1 = open("errlog.txt","a")
+    file1.write(str(data_to_write_err) + dummy_nko)
     file1.close()
     time.sleep(10)
     continue
